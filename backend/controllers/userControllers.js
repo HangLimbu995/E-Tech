@@ -66,16 +66,6 @@ const userLogin = asyncHandler(async (req, res, next) => {
     return
 })
 
-// const logoutUser = asyncHandler(async(req,res,next) => {
-
-//     console.log('logged out')
-//     res.send('hello')
-//     // res.cookie('jwt','', {
-//     //     httpOnly:true,
-//     //     expires: new Date(0),
-//     // })
-//     // res.status(200).json({ message: 'user logged out' })
-// })
 
 const logoutCurrentUser = asyncHandler(async (req, res, nect) => {
     res.cookie('jwt', '', {
@@ -104,9 +94,8 @@ const updateCurrentUserProfile = asyncHandler(async (req, res, next) => {
     if (user) {
         user.username = req.body.username || user.username
         user.email = req.body.email || user.email
-
         if (req.body.password) {
-            const salt = await bcrypt.getSalt(10)
+            const salt = await bcrypt.genSalt(10)
             const hashedPassword = await bcrypt.hash(req.body.password, salt)
             user.password = hashedPassword
         }
