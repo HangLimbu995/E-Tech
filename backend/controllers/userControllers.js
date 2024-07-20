@@ -5,10 +5,8 @@ import createToken from '../utils/createToken.js'
 
 
 const getUsers = asyncHandler(async (req, res, next) => {
-    const users = await User.find({});
-    if (!users) return next("Users not found")
+    const users = await User.find({}).sort({id: -1});
     res.status(200).json(users)
-        .sort({ "_id": -1 })
 
 })
 
