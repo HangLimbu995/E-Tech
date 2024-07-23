@@ -51,7 +51,7 @@ const Login = () => {
                     <form onSubmit={submitHandler} className='container w-[40rem]'>
                         <div className='my-[2rem]'>
                             <lable htmlFor='email' className="block text-sm font-medium text-white">Email Address</lable>
-                            <input type='email' id='emial' className='mt-1 pt-2 border rounded w-full' placeholder='Enter email' value={email} onChange={e => setEmail(e.target.value)} />
+                            <input type='email' id='email' className='mt-1 pt-2 border rounded w-full' placeholder='Enter email' value={email} onChange={e => setEmail(e.target.value)} />
                         </div>
 
                         <div className="mb-4">
